@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src 'none'; img-src data: blob:; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Casa Marco | Preparazione</title>
+<style>
+*{box-sizing:border-box}body{margin:0;padding:28px 20px;background:#f7f5ef;color:#23382f;font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}main{max-width:560px;margin:5vh auto;padding:clamp(24px,5vw,40px);background:#fffefa;border:1px solid #dcded3;border-radius:48px 12px 12px 12px}h1{font:36px/1.15 Georgia,serif;margin:12px 0 24px}.eyebrow{font-size:11px;letter-spacing:3px}p{color:#58685d}label{display:block;margin:20px 0 8px}input{width:100%;min-height:48px;font:inherit;padding:10px;border:1px solid #aab5a1;border-radius:8px}input[type=file]{font-size:14px}button,.download{display:block;width:100%;margin-top:24px;padding:14px;border:0;border-radius:8px;background:#23382f;color:#fff;font:inherit;text-align:center;text-decoration:none;cursor:pointer}button:disabled{opacity:.5;cursor:wait}[hidden]{display:none!important}:focus-visible{outline:3px solid #94785d;outline-offset:3px}.fine{font-size:13px}.status{min-height:24px}.error{color:#9d302d}.ready{color:#315b39;font-weight:600}
+</style>
+</head>
+<body><main>
+<p class="eyebrow">CASA MARCO · PREPARAZIONE</p>
+<h1>La password del progetto.</h1>
+<p>Questa pagina serve al proprietario per preparare la copia cifrata. Non contiene immagini o altri materiali del progetto.</p>
+<div id="source-step"><label for="source">File originale index.html</label><input id="source" type="file" accept=".html,text/html"></div>
+<p id="source-status" class="status" role="status"></p>
+<form id="prepare-form">
+<label for="chosen-password">Password per Casa Marco</label>
+<input id="chosen-password" type="password" autocomplete="new-password" maxlength="256" required>
+<label for="confirm-password">Ripeti la password</label>
+<input id="confirm-password" type="password" autocomplete="new-password" maxlength="256" required>
+<button id="prepare" type="submit" disabled>Prepara la copia cifrata</button>
+<p id="prepare-status" class="status" role="status" aria-live="polite"></p>
+</form>
+<a id="download" class="download" download="index.html" hidden>Scarica la copia cifrata</a>
+<p class="fine">Il file e la password vengono usati soltanto in questo browser. Non vengono inviati a GitHub né salvati. La copia prodotta contiene la presentazione cifrata, senza la password.</p>
+<noscript><p>Per preparare la copia cifrata serve JavaScript.</p></noscript>
+</main>
+<script>(() => {
+  'use strict';
+  // Shared presentation changes and gate template are inserted by the build.
+  const ORIGINAL_BLOB="c1b4704ecc11964d945a6d7628e7a4d39d403ffc";
+const GATE_TEMPLATE="\u003c!doctype html>\n\u003chtml lang=\"it\">\n\u003chead>\n\u003cmeta charset=\"utf-8\">\n\u003cmeta name=\"viewport\" content=\"width=device-width,initial-scale=1,viewport-fit=cover\">\n\u003cmeta name=\"color-scheme\" content=\"light\">\n\u003cmeta name=\"robots\" content=\"noindex, nofollow, noarchive\">\n\u003cmeta name=\"referrer\" content=\"no-referrer\">\n\u003cmeta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'none'; font-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'\">\n\u003ctitle>Casa Marco | Benvenuto\u003c/title>\n\u003cstyle>\n*{box-sizing:border-box}body{margin:0;background:#f7f5ef;color:#23382f;font:16px -apple-system,BlinkMacSystemFont,\"Segoe UI\",sans-serif;min-height:100vh;min-height:100svh;display:grid;place-items:center;padding:max(24px,env(safe-area-inset-top)) 24px max(24px,env(safe-area-inset-bottom))}main{width:100%;max-width:420px;background:#fffefa;border:1px solid #dcded3;padding:clamp(26px,7vw,44px);border-radius:70px 12px 12px 12px}.mark{font:70px Georgia,serif;color:#94785d;margin:0 0 12px}.eyebrow{font-size:11px;letter-spacing:3px}h1{font:42px/1.12 Georgia,serif;letter-spacing:-1px;margin:28px 0 16px}p{color:#68766c;line-height:1.65}label{display:block;font-size:14px;margin:24px 0 8px}input,button{width:100%;min-height:50px;font:inherit;border-radius:8px}input{padding:12px;background:#fff;border:1px solid #aab5a1;color:#23382f}button{margin-top:16px;border:0;background:#23382f;color:#fff;cursor:pointer;font-weight:600}button:disabled{opacity:.65;cursor:wait}input:focus-visible,button:focus-visible{outline:3px solid #94785d;outline-offset:3px}.error{color:#9d302d;min-height:24px;font-size:14px;margin:12px 0 0}.fine{font-size:12px;margin:22px 0 0}noscript p{color:#9d302d}\n\u003c/style>\n\u003c/head>\n\u003cbody>\n\u003cmain id=\"accesso\">\n\u003cp class=\"mark\" aria-hidden=\"true\">m.\u003c/p>\n\u003cdiv class=\"eyebrow\">CASA MARCO\u003c/div>\n\u003ch1>Benvenuto\u003cbr>a casa.\u003c/h1>\n\u003cp>Inserisci la password per esplorare il progetto.\u003c/p>\n\u003cform id=\"login-form\">\n\u003clabel for=\"password\">Password\u003c/label>\n\u003cinput id=\"password\" name=\"password\" type=\"password\" autocomplete=\"current-password\" maxlength=\"256\" required aria-describedby=\"login-message\">\n\u003cbutton id=\"enter\" type=\"submit\">Entra nel progetto\u003c/button>\n\u003cp id=\"login-message\" class=\"error\" role=\"alert\" aria-live=\"polite\">\u003c/p>\n\u003c/form>\n\u003cp class=\"fine\">Uno spazio da condividere con amici e famiglia.\u003c/p>\n\u003cnoscript>\u003cp>Per aprire la presentazione serve JavaScript. Usa Safari o un altro browser completo.\u003c/p>\u003c/noscript>\n\u003c/main>\n\u003cscript id=\"encrypted-project\" type=\"application/json\">__CASA_CIPHER_JSON__\u003c/script>\n\u003cscript>__CASA_GATE_JS__\u003c/script>\n\u003c/body>\n\u003c/html>\n";
+const GATE_SCRIPT="(() => {\n  'use strict';\n  const form = document.getElementById('login-form');\n  const input = document.getElementById('password');\n  const button = document.getElementById('enter');\n  const message = document.getElementById('login-message');\n  // Capture the encrypted edition before anyone types: exported HTML never contains a password.\n  const protectedSource = '\u003c!doctype html>\\n' + document.documentElement.outerHTML;\n  let busy = false;\n  const decode = value => Uint8Array.from(atob(value), c => c.charCodeAt(0));\n  form.addEventListener('submit', async event => {\n    event.preventDefault();\n    if (busy) return;\n    if (!window.crypto?.subtle) {\n      message.textContent = 'Apri il collegamento HTTPS in Safari o in un browser aggiornato.';\n      return;\n    }\n    if (!input.value) { message.textContent = 'Inserisci la password.'; return; }\n    busy = true;\n    button.disabled = true;\n    button.textContent = 'Apertura…';\n    input.removeAttribute('aria-invalid');\n    message.textContent = '';\n    let passwordBytes;\n    let decryptedBytes;\n    try {\n      const data = JSON.parse(document.getElementById('encrypted-project').textContent);\n      if (data.version !== 1 || data.kdf !== 'PBKDF2-SHA256' || data.iterations !== 600000 || data.cipher !== 'AES-256-GCM') throw new Error('Invalid encrypted format');\n      passwordBytes = new TextEncoder().encode(input.value);\n      const base = await crypto.subtle.importKey('raw', passwordBytes, 'PBKDF2', false, ['deriveKey']);\n      const key = await crypto.subtle.deriveKey({name:'PBKDF2', salt:decode(data.salt), iterations:data.iterations, hash:'SHA-256'}, base, {name:'AES-GCM', length:256}, false, ['decrypt']);\n      decryptedBytes = new Uint8Array(await crypto.subtle.decrypt({name:'AES-GCM', iv:decode(data.iv), additionalData:new TextEncoder().encode('CasaMarco:1:PBKDF2-SHA256:600000:AES-256-GCM'), tagLength:128}, key, decode(data.content)));\n      const html = new TextDecoder('utf-8', {fatal:true}).decode(decryptedBytes);\n      if (!html.startsWith('\u003c!doctype html>') || !html.includes('id=\"project-data\"')) throw new Error('Invalid presentation');\n      input.value = '';\n      input.removeAttribute('value');\n      window.__CASA_ENCRYPTED_SOURCE__ = protectedSource;\n      document.open();\n      document.write(html);\n      document.close();\n    } catch {\n      input.value = '';\n      input.setAttribute('aria-invalid', 'true');\n      message.textContent = 'password errata';\n      input.focus();\n    } finally {\n      passwordBytes?.fill(0);\n      decryptedBytes?.fill(0);\n      busy = false;\n      button.disabled = false;\n      button.textContent = 'Entra nel progetto';\n    }\n  });\n})();\n";
+function projectData(html) {
+  return JSON.parse(html.match(/<script id="project-data" type="application\/json">([\s\S]*?)<\/script>/)[1]);
+}
+function preparePresentationText(original) {
+  let html=original;
+  const replace=(before,after,count=1)=>{if(html.split(before).length!==count+1)throw new Error('Aggiornamento ambiguo della presentazione.');html=html.replaceAll(before,after);};
+  replace('Indirizzo pubblico del sito','Collegamento alla presentazione');
+  replace("Il sito e il repository sono pubblici: il link non costituisce una protezione dell\\'accesso.", 'Il collegamento apre la presentazione con password. Comunica la password separatamente.');
+  replace("const FILENAME='Casa_Marco_Presentazione_Interattiva.html';", "const FILENAME='Casa_Marco_Presentazione_Cifrata.html';");
+  replace('<strong>Casa_Marco_Presentazione_Interattiva.html</strong>', '<strong>Casa_Marco_Presentazione_Cifrata.html</strong>',2);
+  replace("OFFLINE_SOURCE='<!doctype html>\\n'+document.documentElement.outerHTML;", "OFFLINE_SOURCE=window.__CASA_ENCRYPTED_SOURCE__||'';if(!OFFLINE_SOURCE)throw new Error('Aprire la versione cifrata della presentazione.');");
+  replace('Salva una copia HTML</button>', 'Salva una copia HTML cifrata</button><p class="micro">Anche la copia HTML richiede la password. Le immagini e il modello esportati singolarmente sono invece copie senza password.</p>');
+  replace('</header>', '<button class="btn session-exit" type="button" data-casa-lock>Esci</button></header>');
+  replace('</style>', '.session-exit{min-width:44px;min-height:44px;padding:9px}@media(max-width:570px){.header{gap:8px}.header .btn-share{min-width:44px;padding:9px}.header .btn-share span{display:none}}@media print{.session-exit{display:none}}</style>');
+  replace('</body>', `<script>(()=>{document.querySelector('[data-casa-lock]').addEventListener('click',()=>location.reload());window.addEventListener('pageshow',e=>{if(e.persisted)location.reload();});})();<\/script></body>`);
+  if(JSON.stringify(projectData(original))!==JSON.stringify(projectData(html)))throw new Error('Dati del progetto alterati.');
+  return html;
+}
+  const source=document.getElementById('source');
+  const sourceStatus=document.getElementById('source-status');
+  const form=document.getElementById('prepare-form');
+  const password=document.getElementById('chosen-password');
+  const confirmation=document.getElementById('confirm-password');
+  const button=document.getElementById('prepare');
+  const status=document.getElementById('prepare-status');
+  const download=document.getElementById('download');
+  const encoder=new TextEncoder();
+  let presentation=null,busy=false,downloadURL=null;
+  const base64=bytes=>{
+    let text='';
+    for(let start=0;start<bytes.length;start+=16384)text+=String.fromCharCode(...bytes.subarray(start,start+16384));
+    return btoa(text);
+  };
+  source.addEventListener('change',async()=>{
+    presentation=null;button.disabled=true;download.hidden=true;
+    sourceStatus.className='status';sourceStatus.textContent='Verifica del file…';
+    try {
+      if(!crypto?.subtle)throw new Error('Apri questa pagina con HTTPS in Safari o in un browser aggiornato.');
+      const file=source.files?.[0];
+      if(!file||file.size!==11280476)throw new Error('Seleziona il file originale index.html di Casa Marco.');
+      const bytes=new Uint8Array(await file.arrayBuffer());
+      const header=encoder.encode(`blob ${bytes.length}\0`),gitBytes=new Uint8Array(header.length+bytes.length);
+      gitBytes.set(header);gitBytes.set(bytes,header.length);
+      const digest=new Uint8Array(await crypto.subtle.digest('SHA-1',gitBytes));
+      const hash=Array.from(digest,n=>n.toString(16).padStart(2,'0')).join('');
+      gitBytes.fill(0);
+      if(hash!==ORIGINAL_BLOB)throw new Error('Il file non corrisponde all’originale verificato.');
+      presentation=preparePresentationText(new TextDecoder('utf-8',{fatal:true}).decode(bytes));
+      bytes.fill(0);
+      if(Object.keys(projectData(presentation).images).length!==50)throw new Error('Le 50 immagini attese non sono presenti.');
+      source.value='';document.getElementById('source-step').hidden=true;
+      sourceStatus.className='status ready';sourceStatus.textContent='Originale verificato: 50 render pronti.';
+      button.disabled=false;
+    }catch(error){sourceStatus.className='status error';sourceStatus.textContent=error.message;}
+  });
+  form.addEventListener('submit',async event=>{
+    event.preventDefault();if(busy||!presentation)return;
+    if(!password.value||password.value!==confirmation.value){status.className='status error';status.textContent='Le due password devono coincidere.';return;}
+    busy=true;button.disabled=true;status.className='status';status.textContent='Cifratura e verifica in corso…';
+    let passwordBytes,plainBytes,checkBytes;
+    try {
+      passwordBytes=encoder.encode(password.value);
+      password.value='';confirmation.value='';
+      const salt=crypto.getRandomValues(new Uint8Array(16)),iv=crypto.getRandomValues(new Uint8Array(12));
+      const base=await crypto.subtle.importKey('raw',passwordBytes,'PBKDF2',false,['deriveKey']);
+      passwordBytes.fill(0);
+      const key=await crypto.subtle.deriveKey({name:'PBKDF2',salt,iterations:600000,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['encrypt','decrypt']);
+      plainBytes=encoder.encode(presentation);
+      const algorithm={name:'AES-GCM',iv,additionalData:encoder.encode('CasaMarco:1:PBKDF2-SHA256:600000:AES-256-GCM'),tagLength:128};
+      const content=new Uint8Array(await crypto.subtle.encrypt(algorithm,key,plainBytes));
+      checkBytes=new Uint8Array(await crypto.subtle.decrypt(algorithm,key,content));
+      if(checkBytes.length!==plainBytes.length||!checkBytes.every((n,i)=>n===plainBytes[i]))throw new Error('Verifica della cifratura fallita.');
+      const data={version:1,kdf:'PBKDF2-SHA256',iterations:600000,cipher:'AES-256-GCM',salt:base64(salt),iv:base64(iv),content:base64(content)};
+      const gate=GATE_TEMPLATE.replace('__CASA_CIPHER_JSON__',()=>JSON.stringify(data)).replace('__CASA_GATE_JS__',()=>GATE_SCRIPT);
+      if(gate.includes('data:image/jpeg;base64,')||gate.includes('<script id="project-data"'))throw new Error('Contenuti non cifrati rilevati.');
+      if(downloadURL)URL.revokeObjectURL(downloadURL);
+      downloadURL=URL.createObjectURL(new Blob([gate],{type:'text/html;charset=utf-8'}));
+      download.href=downloadURL;download.hidden=false;
+      presentation=null;form.hidden=true;
+      sourceStatus.textContent='Copia cifrata pronta e verificata: tutti i 50 render conservati.';
+      sourceStatus.className='status ready';
+    }catch{
+      status.className='status error';status.textContent='Preparazione non riuscita. Inserisci nuovamente la password e riprova.';
+      button.disabled=false;
+    }finally{passwordBytes?.fill(0);plainBytes?.fill(0);checkBytes?.fill(0);busy=false;}
+  });
+})();
+</script>
+</body></html>
