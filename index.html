@@ -3,121 +3,90 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="noindex, nofollow, noarchive">
 <meta name="referrer" content="no-referrer">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src 'none'; img-src data: blob:; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'self'; font-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'">
 <title>Casa Marco</title>
 <style>
-*{box-sizing:border-box}body{margin:0;padding:24px;background:#f7f5ef;color:#23382f;font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh;min-height:100svh;display:grid;place-items:center}main{width:100%;max-width:360px}h1{font:36px/1.2 Georgia,serif;margin:0 0 32px}label{display:block;margin:20px 0 8px;font-size:14px}input{width:100%;min-height:50px;font:inherit;padding:12px;border:1px solid #c5ccc1;border-radius:8px;background:#fffefa;color:inherit}input[type=file]{font-size:14px}button,.download{display:block;width:100%;margin-top:24px;padding:14px;border:0;border-radius:8px;background:#23382f;color:#fff;font:inherit;text-align:center;text-decoration:none;cursor:pointer}button:disabled{opacity:.5;cursor:wait}[hidden],.status:empty{display:none!important}:focus-visible{outline:3px solid #94785d;outline-offset:3px}.status{font-size:14px;margin:14px 0 0}.error{color:#9d302d}
+*{box-sizing:border-box}body{margin:0;background:#f7f5ef;color:#23382f;font:16px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh;min-height:100svh;display:grid;place-items:center;padding:24px}main{width:100%;max-width:360px}h1{font:36px/1.2 Georgia,serif;margin:0 0 32px}p{font-size:14px}progress{width:100%;height:5px;accent-color:#23382f}button{width:100%;min-height:50px;border:0;border-radius:8px;background:#23382f;color:#fff;font:inherit;cursor:pointer}button[hidden]{display:none}button:focus-visible{outline:3px solid #94785d;outline-offset:3px}
 </style>
 </head>
-<body><main>
+<body>
+<main>
 <h1>Casa Marco</h1>
-<div id="source-step"><label for="source">Progetto</label><input id="source" type="file" accept=".html,text/html"></div>
-<p id="source-status" class="status" role="status"></p>
-<form id="prepare-form">
-<label for="chosen-password">Password</label>
-<input id="chosen-password" type="password" autocomplete="new-password" maxlength="256" required>
-<label for="confirm-password">Ripeti password</label>
-<input id="confirm-password" type="password" autocomplete="new-password" maxlength="256" required>
-<button id="prepare" type="submit" disabled>Continua</button>
-<p id="prepare-status" class="status" role="status" aria-live="polite"></p>
-</form>
-<a id="download" class="download" download="index.html" hidden>Scarica</a>
-<noscript><p>Per preparare la copia cifrata serve JavaScript.</p></noscript>
+<p id="status" role="status" aria-live="polite">Caricamento…</p>
+<progress id="progress" max="100" value="0" aria-label="Caricamento"></progress>
+<button id="retry" type="button" hidden>Riprova</button>
+<noscript><p>Per aprire la presentazione serve JavaScript.</p></noscript>
 </main>
+<script id="encrypted-parts" type="application/json">{"version":1,"size":15046528,"sha256":"7b9297f84dadf5ebf19870bc18eae3ac0e02100512baae0c6bc4139ebc6e755e","parts":[{"path":"assets/7b9297f84dadf5eb/part-001.txt","size":262144,"sha256":"f7cf6f9129c370fd779e83e00d2fe0504fd5ef5b45b752551fd5f71feec94c04"},{"path":"assets/7b9297f84dadf5eb/part-002.txt","size":262144,"sha256":"67f720e35b7323627efcf1650fe38982b009827f3bb99edfd22804d60fdcd80c"},{"path":"assets/7b9297f84dadf5eb/part-003.txt","size":262144,"sha256":"c46b178e22849ee6b63192c20f625b5ce7e5115679340131387bd24ff69baab0"},{"path":"assets/7b9297f84dadf5eb/part-004.txt","size":262144,"sha256":"5ddf46a49cf13a3117aa56579e9e798de8e797494ca376f37f5441170ab505a9"},{"path":"assets/7b9297f84dadf5eb/part-005.txt","size":262144,"sha256":"6ac8d4f016a07b94599e47f377085a8cbae50ba24ab9f0a3afc0ff84a1158442"},{"path":"assets/7b9297f84dadf5eb/part-006.txt","size":262144,"sha256":"c6937f55bf79971dbd2955f54ce47d5670bda44ce5cb8da4d83b289c48ec6a00"},{"path":"assets/7b9297f84dadf5eb/part-007.txt","size":262144,"sha256":"15a312aa55543e3ce48b8586e5393fbb542217d026d026378163e7d9f53c4891"},{"path":"assets/7b9297f84dadf5eb/part-008.txt","size":262144,"sha256":"e41d12db652fc8a94b88bd899235c548f838454c8c061438c157daf6be5dc441"},{"path":"assets/7b9297f84dadf5eb/part-009.txt","size":262144,"sha256":"4bef08dc73b4dba733f3d80aff3df5e9fb82bcb73e0b869932f31b1a60c0c467"},{"path":"assets/7b9297f84dadf5eb/part-010.txt","size":262144,"sha256":"683ebcfe96017007b14ab8bb0583638f58a391d5621c59abff11af182b57e357"},{"path":"assets/7b9297f84dadf5eb/part-011.txt","size":262144,"sha256":"164ff6d93a6d8a6cd4109a68e052427aaefa66ab9345e28953200569280533d8"},{"path":"assets/7b9297f84dadf5eb/part-012.txt","size":262144,"sha256":"c19aa828335cc88e0423d53b3bdd187402db1c09422c157fae3239d355d1fb42"},{"path":"assets/7b9297f84dadf5eb/part-013.txt","size":262144,"sha256":"a836804d00dcfdbdcbd00f1e1005fbbe75d8611d410f8225330daf80a1924728"},{"path":"assets/7b9297f84dadf5eb/part-014.txt","size":262144,"sha256":"4cecfaa2b8516517746c54b1ab8f1e47c78a4c26aaaca4c252b6209a57af2982"},{"path":"assets/7b9297f84dadf5eb/part-015.txt","size":262144,"sha256":"76769f221d42507619380338e78bd947890b827e748a293d0566e8c5e017e35a"},{"path":"assets/7b9297f84dadf5eb/part-016.txt","size":262144,"sha256":"eba17ea270428d097494ca5071c5c11198bb96589908b6d7ff25111989d5234b"},{"path":"assets/7b9297f84dadf5eb/part-017.txt","size":262144,"sha256":"a16c0c1af5cff3b1731ab84bc4192905dcff695bf90eaae908fee17aa10e0c28"},{"path":"assets/7b9297f84dadf5eb/part-018.txt","size":262144,"sha256":"7530c04301bf70831f6af1973e58d026925b6dbe7979477dfab2c41981737861"},{"path":"assets/7b9297f84dadf5eb/part-019.txt","size":262144,"sha256":"484ecc257f2f6fca7e83048e0f74cdec7b1dc4b26e4432c2240a0b9f1602da6e"},{"path":"assets/7b9297f84dadf5eb/part-020.txt","size":262144,"sha256":"5f87ad1bb09ccd80670241c59a6c39d2e7e7b9f73030c639c6a8c3469467595a"},{"path":"assets/7b9297f84dadf5eb/part-021.txt","size":262144,"sha256":"9c8eb7bddd7ecf3820dd0ea32920daf99004afc2d3d33845ee7401da01544fc1"},{"path":"assets/7b9297f84dadf5eb/part-022.txt","size":262144,"sha256":"e05896a5021ade2b72e0ff97b21d0783b3aa75317a89b74288d0e156aa1465be"},{"path":"assets/7b9297f84dadf5eb/part-023.txt","size":262144,"sha256":"a5144aea97197e864862cf1bddb60ff7edc00b3358be698e93fc312bf1fc83cb"},{"path":"assets/7b9297f84dadf5eb/part-024.txt","size":262144,"sha256":"443af28f215492e29d3ae07570c956bedf04fa8598ebb714f172a3e62047e6d3"},{"path":"assets/7b9297f84dadf5eb/part-025.txt","size":262144,"sha256":"50906b609c3bcc365f48d1fa0c2c1f5b5b08f25e188d2d974423b72152b51aec"},{"path":"assets/7b9297f84dadf5eb/part-026.txt","size":262144,"sha256":"995603bb9fe7beb5173d02bf6226bddf7d1f3912f7496379227132970ebef7b2"},{"path":"assets/7b9297f84dadf5eb/part-027.txt","size":262144,"sha256":"a4190bc8acdc4230aa2e040c10210242c04a8820d77bb0360a0597d119bb05c5"},{"path":"assets/7b9297f84dadf5eb/part-028.txt","size":262144,"sha256":"b38d297e13e3011c7bbfae68384f092783f99987dea0426e1a12511c29c4c21d"},{"path":"assets/7b9297f84dadf5eb/part-029.txt","size":262144,"sha256":"6d004a5956d8804cde1b734c5fa497f2787a7d4d4a3a5609ab1a8bffde4946fc"},{"path":"assets/7b9297f84dadf5eb/part-030.txt","size":262144,"sha256":"f58d3d96671f3d287c7d1b83584ce7f5aeab0a5a42af9dfe19e5702233013a9e"},{"path":"assets/7b9297f84dadf5eb/part-031.txt","size":262144,"sha256":"362c98e2c8aa886a65edc5f6a6339d67e29217612f883ea7ee1d8c8422db850c"},{"path":"assets/7b9297f84dadf5eb/part-032.txt","size":262144,"sha256":"3581b395dc86abffb8826ac700e9e66453f769d58e487d3d8948dfa687dd7712"},{"path":"assets/7b9297f84dadf5eb/part-033.txt","size":262144,"sha256":"e1b253212a69d9b915d6023a79e3a922d4d83a477f340e9ac00bbc918e06ed0f"},{"path":"assets/7b9297f84dadf5eb/part-034.txt","size":262144,"sha256":"8efcdd7e74a264b099b8dd7fe89d44da9fd7ef2c427e48816110a21377a03748"},{"path":"assets/7b9297f84dadf5eb/part-035.txt","size":262144,"sha256":"185fb8fb7c8d6fe79d7902aa438471466dea20b8fc4885fcb16fc815f407c987"},{"path":"assets/7b9297f84dadf5eb/part-036.txt","size":262144,"sha256":"e16c7218563859fbd20801720838887d41a9e7aa967698e5cec53f43eea854ad"},{"path":"assets/7b9297f84dadf5eb/part-037.txt","size":262144,"sha256":"9f7e055e50827225f8bb8d484f885e545194f61c30f0316fadac2887969b374c"},{"path":"assets/7b9297f84dadf5eb/part-038.txt","size":262144,"sha256":"eabfa1cf0953c20790bb6d64fd582cc76532fa683d2bf8b9077eb581c9ddb031"},{"path":"assets/7b9297f84dadf5eb/part-039.txt","size":262144,"sha256":"528a3ad28d52df2da9407ef11dd86432edb0885942e3382fe8bfd3b4f529639f"},{"path":"assets/7b9297f84dadf5eb/part-040.txt","size":262144,"sha256":"f391503131ca5ee02966835b04de83918acbcf56b7b9c4c99ea6d72d2f169f7f"},{"path":"assets/7b9297f84dadf5eb/part-041.txt","size":262144,"sha256":"b79b747bd0657fde96f390e897d369ce44572243b1e58f20af944ff52ce62a8f"},{"path":"assets/7b9297f84dadf5eb/part-042.txt","size":262144,"sha256":"25db33a28402c1afb10060c4b1b7db05c6dc67637d53bbdcf967b3c9030bef8b"},{"path":"assets/7b9297f84dadf5eb/part-043.txt","size":262144,"sha256":"c6175b812e4e987c92dd5fb849df2fda7e00b1f7bf9291173c12ef7bca735ffb"},{"path":"assets/7b9297f84dadf5eb/part-044.txt","size":262144,"sha256":"6a44404c3e98c871afd9e5c22ad83980ee45ab110299b0f532e2ca9c07005fdf"},{"path":"assets/7b9297f84dadf5eb/part-045.txt","size":262144,"sha256":"2cfe48ce1d67091f8914d08b3058e185970ab76eeeaaf4932ab6d472391602cb"},{"path":"assets/7b9297f84dadf5eb/part-046.txt","size":262144,"sha256":"0859292f56a117ab8f46638501b7c09b69e121ed30f3827ad2099f487a2cbb7d"},{"path":"assets/7b9297f84dadf5eb/part-047.txt","size":262144,"sha256":"e85f5d2219cfe433a27c4f60076ca6a3eb78e6fcc77b43650dd3394bd10c8db6"},{"path":"assets/7b9297f84dadf5eb/part-048.txt","size":262144,"sha256":"5fcd1012e5f508e39264d46c7acef74b5dfbf28a02520076f69d92bc2f981c8e"},{"path":"assets/7b9297f84dadf5eb/part-049.txt","size":262144,"sha256":"639a421427f54a01a2e2ca24618360471e04ee8ba998eb8801ce0a3482734d4b"},{"path":"assets/7b9297f84dadf5eb/part-050.txt","size":262144,"sha256":"b781019f3ace96b762966bcee63a9d7671c6a4a27bb25e7d02fd22c40ba8734e"},{"path":"assets/7b9297f84dadf5eb/part-051.txt","size":262144,"sha256":"b3552bb6d3809407f1fc7dd6fa7f3dd48a5423a573e2bd8e4d423f3edbfcf9a7"},{"path":"assets/7b9297f84dadf5eb/part-052.txt","size":262144,"sha256":"09d0a5359a20f7e5e891d87af2e3662b60a1d97bec20bcd6eccb1c261bbd4aaf"},{"path":"assets/7b9297f84dadf5eb/part-053.txt","size":262144,"sha256":"5408c784e4f734739b863fd0e97fa898c7c514ef3fd8892ed5571568f6d72904"},{"path":"assets/7b9297f84dadf5eb/part-054.txt","size":262144,"sha256":"70342cabf57a40351d03b3b3e691569512a0278572ef72095ed029abd7341881"},{"path":"assets/7b9297f84dadf5eb/part-055.txt","size":262144,"sha256":"647c2ff51fd18b1b791a90aff327a322979e0fb927de28a58cf59fd63fc8f506"},{"path":"assets/7b9297f84dadf5eb/part-056.txt","size":262144,"sha256":"10d8af74dcb41d008ac86a97e4fc70a01fd0a0bc71dc7f15f7e5713dd4e6c39d"},{"path":"assets/7b9297f84dadf5eb/part-057.txt","size":262144,"sha256":"c4420bff8e643b43d236fb1d3f5753a82e177b7fe141fce83fb3338d24113b26"},{"path":"assets/7b9297f84dadf5eb/part-058.txt","size":104320,"sha256":"b3bf858d04c473042c54103ddd23d443a40be9eacb79e0bb4858ee79cc4da905"}]}</script>
 <script>(() => {
   'use strict';
-  // Shared presentation changes and gate template are inserted by the build.
-  const ORIGINAL_BLOB="c1b4704ecc11964d945a6d7628e7a4d39d403ffc";
-const GATE_TEMPLATE="\u003c!doctype html>\n\u003chtml lang=\"it\">\n\u003chead>\n\u003cmeta charset=\"utf-8\">\n\u003cmeta name=\"viewport\" content=\"width=device-width,initial-scale=1,viewport-fit=cover\">\n\u003cmeta name=\"color-scheme\" content=\"light\">\n\u003cmeta name=\"robots\" content=\"noindex, nofollow, noarchive\">\n\u003cmeta name=\"referrer\" content=\"no-referrer\">\n\u003cmeta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'none'; font-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'\">\n\u003ctitle>Casa Marco\u003c/title>\n\u003cstyle>\n*{box-sizing:border-box}body{margin:0;background:#f7f5ef;color:#23382f;font:16px -apple-system,BlinkMacSystemFont,\"Segoe UI\",sans-serif;min-height:100vh;min-height:100svh;display:grid;place-items:center;padding:max(24px,env(safe-area-inset-top)) 24px max(24px,env(safe-area-inset-bottom))}main{width:100%;max-width:360px}h1{font:36px/1.2 Georgia,serif;margin:0 0 32px}label{display:block;font-size:14px;margin:20px 0 8px}input,button{width:100%;min-height:50px;font:inherit;border-radius:8px}input{box-sizing:border-box;padding:12px;background:#fffefa;border:1px solid #c5ccc1;color:#23382f}button{margin-top:24px;border:0;background:#23382f;color:#fff;cursor:pointer}button:disabled{opacity:.65;cursor:wait}input:focus-visible,button:focus-visible{outline:3px solid #94785d;outline-offset:3px}.error{color:#9d302d;font-size:14px;margin:14px 0 0}.error:empty{display:none}noscript p{color:#9d302d}\n\u003c/style>\n\u003c/head>\n\u003cbody>\n\u003cmain id=\"accesso\">\n\u003ch1>Casa Marco\u003c/h1>\n\u003cform id=\"login-form\">\n\u003clabel for=\"password\">Password\u003c/label>\n\u003cinput id=\"password\" name=\"password\" type=\"password\" autocomplete=\"current-password\" maxlength=\"256\" required aria-describedby=\"login-message\">\n\u003cbutton id=\"enter\" type=\"submit\">Entra\u003c/button>\n\u003cp id=\"login-message\" class=\"error\" role=\"alert\" aria-live=\"polite\">\u003c/p>\n\u003c/form>\n\u003cnoscript>\u003cp>Per aprire la presentazione serve JavaScript. Usa Safari o un altro browser completo.\u003c/p>\u003c/noscript>\n\u003c/main>\n\u003cscript id=\"encrypted-project\" type=\"application/json\">__CASA_CIPHER_JSON__\u003c/script>\n\u003cscript>__CASA_GATE_JS__\u003c/script>\n\u003c/body>\n\u003c/html>\n";
-const GATE_SCRIPT="(() => {\n  'use strict';\n  const form = document.getElementById('login-form');\n  const input = document.getElementById('password');\n  const button = document.getElementById('enter');\n  const message = document.getElementById('login-message');\n  // Capture the encrypted edition before anyone types: exported HTML never contains a password.\n  const protectedSource = '\u003c!doctype html>\\n' + document.documentElement.outerHTML;\n  let busy = false;\n  const decode = value => Uint8Array.from(atob(value), c => c.charCodeAt(0));\n  form.addEventListener('submit', async event => {\n    event.preventDefault();\n    if (busy) return;\n    if (!window.crypto?.subtle) {\n      message.textContent = 'Apri il collegamento HTTPS in Safari o in un browser aggiornato.';\n      return;\n    }\n    if (!input.value) { message.textContent = 'Inserisci la password.'; return; }\n    busy = true;\n    button.disabled = true;\n    button.textContent = 'Apertura…';\n    input.removeAttribute('aria-invalid');\n    message.textContent = '';\n    let passwordBytes;\n    let decryptedBytes;\n    try {\n      const data = JSON.parse(document.getElementById('encrypted-project').textContent);\n      if (data.version !== 1 || data.kdf !== 'PBKDF2-SHA256' || data.iterations !== 600000 || data.cipher !== 'AES-256-GCM') throw new Error('Invalid encrypted format');\n      passwordBytes = new TextEncoder().encode(input.value);\n      const base = await crypto.subtle.importKey('raw', passwordBytes, 'PBKDF2', false, ['deriveKey']);\n      const key = await crypto.subtle.deriveKey({name:'PBKDF2', salt:decode(data.salt), iterations:data.iterations, hash:'SHA-256'}, base, {name:'AES-GCM', length:256}, false, ['decrypt']);\n      decryptedBytes = new Uint8Array(await crypto.subtle.decrypt({name:'AES-GCM', iv:decode(data.iv), additionalData:new TextEncoder().encode('CasaMarco:1:PBKDF2-SHA256:600000:AES-256-GCM'), tagLength:128}, key, decode(data.content)));\n      const html = new TextDecoder('utf-8', {fatal:true}).decode(decryptedBytes);\n      if (!html.startsWith('\u003c!doctype html>') || !html.includes('id=\"project-data\"')) throw new Error('Invalid presentation');\n      input.value = '';\n      input.removeAttribute('value');\n      window.__CASA_ENCRYPTED_SOURCE__ = protectedSource;\n      document.open();\n      document.write(html);\n      document.close();\n    } catch {\n      input.value = '';\n      input.setAttribute('aria-invalid', 'true');\n      message.textContent = 'password errata';\n      input.focus();\n    } finally {\n      passwordBytes?.fill(0);\n      decryptedBytes?.fill(0);\n      busy = false;\n      button.disabled = false;\n      button.textContent = 'Entra';\n    }\n  });\n})();\n";
-function projectData(html) {
-  return JSON.parse(html.match(/<script id="project-data" type="application\/json">([\s\S]*?)<\/script>/)[1]);
-}
-function preparePresentationText(original) {
-  let html=original;
-  const replace=(before,after,count=1)=>{if(html.split(before).length!==count+1)throw new Error('Aggiornamento ambiguo della presentazione.');html=html.replaceAll(before,after);};
-  replace('Indirizzo pubblico del sito','Collegamento alla presentazione');
-  replace("Il sito e il repository sono pubblici: il link non costituisce una protezione dell\\'accesso.", 'Il collegamento apre la presentazione con password. Comunica la password separatamente.');
-  replace("const FILENAME='Casa_Marco_Presentazione_Interattiva.html';", "const FILENAME='Casa_Marco_Presentazione_Cifrata.html';");
-  replace('<strong>Casa_Marco_Presentazione_Interattiva.html</strong>', '<strong>Casa_Marco_Presentazione_Cifrata.html</strong>',2);
-  replace("OFFLINE_SOURCE='<!doctype html>\\n'+document.documentElement.outerHTML;", "OFFLINE_SOURCE=window.__CASA_ENCRYPTED_SOURCE__||'';if(!OFFLINE_SOURCE)throw new Error('Aprire la versione cifrata della presentazione.');");
-  replace('Salva una copia HTML</button>', 'Salva una copia HTML cifrata</button><p class="micro">Anche la copia HTML richiede la password. Le immagini e il modello esportati singolarmente sono invece copie senza password.</p>');
-  replace('</header>', '<button class="btn session-exit" type="button" data-casa-lock>Esci</button></header>');
-  replace('</style>', '.session-exit{min-width:44px;min-height:44px;padding:9px}@media(max-width:570px){.header{gap:8px}.header .btn-share{min-width:44px;padding:9px}.header .btn-share span{display:none}}@media print{.session-exit{display:none}}</style>');
-  replace('</body>', `<script>(()=>{document.querySelector('[data-casa-lock]').addEventListener('click',()=>location.reload());window.addEventListener('pageshow',e=>{if(e.persisted)location.reload();});})();<\/script></body>`);
-  if(JSON.stringify(projectData(original))!==JSON.stringify(projectData(html)))throw new Error('Dati del progetto alterati.');
-  return html;
-}
-  const source=document.getElementById('source');
-  const sourceStatus=document.getElementById('source-status');
-  const form=document.getElementById('prepare-form');
-  const password=document.getElementById('chosen-password');
-  const confirmation=document.getElementById('confirm-password');
-  const button=document.getElementById('prepare');
-  const status=document.getElementById('prepare-status');
-  const download=document.getElementById('download');
-  const encoder=new TextEncoder();
-  let presentation=null,busy=false,downloadURL=null;
-  const base64=bytes=>{
-    let text='';
-    for(let start=0;start<bytes.length;start+=16384)text+=String.fromCharCode(...bytes.subarray(start,start+16384));
-    return btoa(text);
-  };
-  source.addEventListener('change',async()=>{
-    presentation=null;button.disabled=true;download.hidden=true;
-    sourceStatus.className='status';sourceStatus.textContent='';
+  const status = document.getElementById('status');
+  const progress = document.getElementById('progress');
+  const retry = document.getElementById('retry');
+  const manifest = JSON.parse(document.getElementById('encrypted-parts').textContent);
+  const hex = bytes => Array.from(new Uint8Array(bytes), b => b.toString(16).padStart(2, '0')).join('');
+  const digest = async bytes => hex(await crypto.subtle.digest('SHA-256', bytes));
+  let busy = false;
+  async function load() {
+    if (busy) return;
+    busy = true;
+    retry.hidden = true;
+    progress.hidden = false;
+    progress.value = 0;
+    status.textContent = 'Caricamento…';
+    const controller = new AbortController();
     try {
-      if(!crypto?.subtle)throw new Error('Apri questa pagina con HTTPS in Safari o in un browser aggiornato.');
-      const file=source.files?.[0];
-      if(!file||file.size!==11280476)throw new Error('Seleziona il file originale index.html di Casa Marco.');
-      const bytes=new Uint8Array(await file.arrayBuffer());
-      const header=encoder.encode(`blob ${bytes.length}\0`),gitBytes=new Uint8Array(header.length+bytes.length);
-      gitBytes.set(header);gitBytes.set(bytes,header.length);
-      const digest=new Uint8Array(await crypto.subtle.digest('SHA-1',gitBytes));
-      const hash=Array.from(digest,n=>n.toString(16).padStart(2,'0')).join('');
-      gitBytes.fill(0);
-      if(hash!==ORIGINAL_BLOB)throw new Error('Il file non corrisponde all’originale verificato.');
-      presentation=preparePresentationText(new TextDecoder('utf-8',{fatal:true}).decode(bytes));
-      bytes.fill(0);
-      if(Object.keys(projectData(presentation).images).length!==50)throw new Error('Le 50 immagini attese non sono presenti.');
-      source.value='';document.getElementById('source-step').hidden=true;
-      sourceStatus.className='status';sourceStatus.textContent='';
-      button.disabled=false;
-    }catch(error){sourceStatus.className='status error';sourceStatus.textContent=error.message;}
-  });
-  form.addEventListener('submit',async event=>{
-    event.preventDefault();if(busy||!presentation)return;
-    if(!password.value||password.value!==confirmation.value){status.className='status error';status.textContent='Le due password devono coincidere.';return;}
-    busy=true;button.disabled=true;button.textContent='Attendi…';status.className='status';status.textContent='';
-    let passwordBytes,plainBytes,checkBytes;
-    try {
-      passwordBytes=encoder.encode(password.value);
-      password.value='';confirmation.value='';
-      const salt=crypto.getRandomValues(new Uint8Array(16)),iv=crypto.getRandomValues(new Uint8Array(12));
-      const base=await crypto.subtle.importKey('raw',passwordBytes,'PBKDF2',false,['deriveKey']);
-      passwordBytes.fill(0);
-      const key=await crypto.subtle.deriveKey({name:'PBKDF2',salt,iterations:600000,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['encrypt','decrypt']);
-      plainBytes=encoder.encode(presentation);
-      const algorithm={name:'AES-GCM',iv,additionalData:encoder.encode('CasaMarco:1:PBKDF2-SHA256:600000:AES-256-GCM'),tagLength:128};
-      const content=new Uint8Array(await crypto.subtle.encrypt(algorithm,key,plainBytes));
-      checkBytes=new Uint8Array(await crypto.subtle.decrypt(algorithm,key,content));
-      if(checkBytes.length!==plainBytes.length||!checkBytes.every((n,i)=>n===plainBytes[i]))throw new Error('Verifica della cifratura fallita.');
-      const data={version:1,kdf:'PBKDF2-SHA256',iterations:600000,cipher:'AES-256-GCM',salt:base64(salt),iv:base64(iv),content:base64(content)};
-      const gate=GATE_TEMPLATE.replace('__CASA_CIPHER_JSON__',()=>JSON.stringify(data)).replace('__CASA_GATE_JS__',()=>GATE_SCRIPT);
-      if(gate.includes('data:image/jpeg;base64,')||gate.includes('<script id="project-data"'))throw new Error('Contenuti non cifrati rilevati.');
-      if(downloadURL)URL.revokeObjectURL(downloadURL);
-      downloadURL=URL.createObjectURL(new Blob([gate],{type:'text/html;charset=utf-8'}));
-      download.href=downloadURL;download.hidden=false;
-      presentation=null;form.hidden=true;
-      sourceStatus.textContent='Pronto.';
-      sourceStatus.className='status';
-    }catch{
-      status.className='status error';status.textContent='Preparazione non riuscita. Inserisci nuovamente la password e riprova.';
-      button.disabled=false;
-    }finally{passwordBytes?.fill(0);plainBytes?.fill(0);checkBytes?.fill(0);busy=false;button.textContent='Continua';}
-  });
+      if (!crypto.subtle) throw new Error('HTTPS required');
+      const parts = new Array(manifest.parts.length);
+      let next = 0;
+      let completed = 0;
+      async function worker() {
+        while (next < manifest.parts.length) {
+          if (controller.signal.aborted) throw new Error('Download cancelled');
+          const index = next++;
+          const part = manifest.parts[index];
+          if (!/^assets\/[a-f0-9]{16}\/part-\d{3}\.txt$/.test(part.path)) throw new Error('Invalid path');
+          const timeout = setTimeout(() => controller.abort(), 30000);
+          try {
+            const response = await fetch(new URL(part.path, location.href), {credentials:'omit', redirect:'error', signal:controller.signal});
+            if (!response.ok) throw new Error('Download failed');
+            const bytes = new Uint8Array(await response.arrayBuffer());
+            if (bytes.length !== part.size || await digest(bytes) !== part.sha256) throw new Error('Incomplete download');
+            if (controller.signal.aborted) throw new Error('Download cancelled');
+            parts[index] = bytes;
+            completed += bytes.length;
+            progress.value = Math.round(completed / manifest.size * 100);
+            status.textContent = `Caricamento… ${progress.value}%`;
+          } finally {
+            clearTimeout(timeout);
+          }
+        }
+      }
+      await Promise.all(Array.from({length:Math.min(4, parts.length)}, () => worker()));
+      const bytes = new Uint8Array(manifest.size);
+      let offset = 0;
+      for (const part of parts) { bytes.set(part, offset); offset += part.length; }
+      if (offset !== manifest.size || await digest(bytes) !== manifest.sha256) throw new Error('Invalid package');
+      const html = new TextDecoder('utf-8', {fatal:true}).decode(bytes);
+      if (!html.startsWith('<!doctype html>') || !html.includes('id="encrypted-project"')) throw new Error('Invalid encrypted page');
+      document.open();
+      document.write(html);
+      document.close();
+    } catch {
+      controller.abort();
+      status.textContent = 'Caricamento non riuscito. Controlla la connessione e riprova.';
+      progress.hidden = true;
+      retry.hidden = false;
+    } finally {
+      busy = false;
+    }
+  }
+  retry.addEventListener('click', load);
+  load();
 })();
 </script>
-</body></html>
+</body>
+</html>
