@@ -9,83 +9,114 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'self'; font-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'">
 <title>Casa Marco</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#f7f5ef;color:#23382f;font:16px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh;min-height:100svh;display:grid;place-items:center;padding:24px}main{width:100%;max-width:360px}h1{font:36px/1.2 Georgia,serif;margin:0 0 32px}p{font-size:14px}progress{width:100%;height:5px;accent-color:#23382f}button{width:100%;min-height:50px;border:0;border-radius:8px;background:#23382f;color:#fff;font:inherit;cursor:pointer}button[hidden]{display:none}button:focus-visible{outline:3px solid #94785d;outline-offset:3px}
+*{box-sizing:border-box}body{margin:0;background:#f7f5ef;color:#23382f;font:16px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh;min-height:100svh;display:grid;place-items:center;padding:max(24px,env(safe-area-inset-top)) 24px max(24px,env(safe-area-inset-bottom))}main{width:100%;max-width:360px}h1{font:36px/1.2 Georgia,serif;margin:0 0 32px}label{display:block;font-size:14px;margin:20px 0 8px}input,button{width:100%;min-height:50px;font:inherit;border-radius:8px}input{box-sizing:border-box;padding:12px;background:#fffefa;border:1px solid #c5ccc1;color:#23382f}button{margin-top:24px;border:0;background:#23382f;color:#fff;cursor:pointer}button:disabled{opacity:.65;cursor:wait}input:focus-visible,button:focus-visible{outline:3px solid #94785d;outline-offset:3px}.error{color:#9d302d;font-size:14px;margin:14px 0 0}.error:empty{display:none}noscript p{color:#9d302d}
 </style>
 </head>
 <body>
-<main>
+<main id="accesso">
 <h1>Casa Marco</h1>
-<p id="status" role="status" aria-live="polite">Caricamento…</p>
-<progress id="progress" max="100" value="0" aria-label="Caricamento"></progress>
-<button id="retry" type="button" hidden>Riprova</button>
-<noscript><p>Per aprire la presentazione serve JavaScript.</p></noscript>
+<form id="login-form">
+<label for="password">Password</label>
+<input id="password" name="password" type="password" autocomplete="current-password" maxlength="256" required aria-describedby="login-message">
+<button id="enter" type="submit">Entra</button>
+<p id="login-message" class="error" role="alert" aria-live="polite"></p>
+</form>
+<noscript><p>Per aprire la presentazione serve JavaScript. Usa Safari o un altro browser completo.</p></noscript>
 </main>
-<script id="encrypted-parts" type="application/json">{"version":1,"size":15046528,"sha256":"7b9297f84dadf5ebf19870bc18eae3ac0e02100512baae0c6bc4139ebc6e755e","parts":[{"path":"assets/7b9297f84dadf5eb/part-001.txt","size":262144,"sha256":"f7cf6f9129c370fd779e83e00d2fe0504fd5ef5b45b752551fd5f71feec94c04"},{"path":"assets/7b9297f84dadf5eb/part-002.txt","size":262144,"sha256":"67f720e35b7323627efcf1650fe38982b009827f3bb99edfd22804d60fdcd80c"},{"path":"assets/7b9297f84dadf5eb/part-003.txt","size":262144,"sha256":"c46b178e22849ee6b63192c20f625b5ce7e5115679340131387bd24ff69baab0"},{"path":"assets/7b9297f84dadf5eb/part-004.txt","size":262144,"sha256":"5ddf46a49cf13a3117aa56579e9e798de8e797494ca376f37f5441170ab505a9"},{"path":"assets/7b9297f84dadf5eb/part-005.txt","size":262144,"sha256":"6ac8d4f016a07b94599e47f377085a8cbae50ba24ab9f0a3afc0ff84a1158442"},{"path":"assets/7b9297f84dadf5eb/part-006.txt","size":262144,"sha256":"c6937f55bf79971dbd2955f54ce47d5670bda44ce5cb8da4d83b289c48ec6a00"},{"path":"assets/7b9297f84dadf5eb/part-007.txt","size":262144,"sha256":"15a312aa55543e3ce48b8586e5393fbb542217d026d026378163e7d9f53c4891"},{"path":"assets/7b9297f84dadf5eb/part-008.txt","size":262144,"sha256":"e41d12db652fc8a94b88bd899235c548f838454c8c061438c157daf6be5dc441"},{"path":"assets/7b9297f84dadf5eb/part-009.txt","size":262144,"sha256":"4bef08dc73b4dba733f3d80aff3df5e9fb82bcb73e0b869932f31b1a60c0c467"},{"path":"assets/7b9297f84dadf5eb/part-010.txt","size":262144,"sha256":"683ebcfe96017007b14ab8bb0583638f58a391d5621c59abff11af182b57e357"},{"path":"assets/7b9297f84dadf5eb/part-011.txt","size":262144,"sha256":"164ff6d93a6d8a6cd4109a68e052427aaefa66ab9345e28953200569280533d8"},{"path":"assets/7b9297f84dadf5eb/part-012.txt","size":262144,"sha256":"c19aa828335cc88e0423d53b3bdd187402db1c09422c157fae3239d355d1fb42"},{"path":"assets/7b9297f84dadf5eb/part-013.txt","size":262144,"sha256":"a836804d00dcfdbdcbd00f1e1005fbbe75d8611d410f8225330daf80a1924728"},{"path":"assets/7b9297f84dadf5eb/part-014.txt","size":262144,"sha256":"4cecfaa2b8516517746c54b1ab8f1e47c78a4c26aaaca4c252b6209a57af2982"},{"path":"assets/7b9297f84dadf5eb/part-015.txt","size":262144,"sha256":"76769f221d42507619380338e78bd947890b827e748a293d0566e8c5e017e35a"},{"path":"assets/7b9297f84dadf5eb/part-016.txt","size":262144,"sha256":"eba17ea270428d097494ca5071c5c11198bb96589908b6d7ff25111989d5234b"},{"path":"assets/7b9297f84dadf5eb/part-017.txt","size":262144,"sha256":"a16c0c1af5cff3b1731ab84bc4192905dcff695bf90eaae908fee17aa10e0c28"},{"path":"assets/7b9297f84dadf5eb/part-018.txt","size":262144,"sha256":"7530c04301bf70831f6af1973e58d026925b6dbe7979477dfab2c41981737861"},{"path":"assets/7b9297f84dadf5eb/part-019.txt","size":262144,"sha256":"484ecc257f2f6fca7e83048e0f74cdec7b1dc4b26e4432c2240a0b9f1602da6e"},{"path":"assets/7b9297f84dadf5eb/part-020.txt","size":262144,"sha256":"5f87ad1bb09ccd80670241c59a6c39d2e7e7b9f73030c639c6a8c3469467595a"},{"path":"assets/7b9297f84dadf5eb/part-021.txt","size":262144,"sha256":"9c8eb7bddd7ecf3820dd0ea32920daf99004afc2d3d33845ee7401da01544fc1"},{"path":"assets/7b9297f84dadf5eb/part-022.txt","size":262144,"sha256":"e05896a5021ade2b72e0ff97b21d0783b3aa75317a89b74288d0e156aa1465be"},{"path":"assets/7b9297f84dadf5eb/part-023.txt","size":262144,"sha256":"a5144aea97197e864862cf1bddb60ff7edc00b3358be698e93fc312bf1fc83cb"},{"path":"assets/7b9297f84dadf5eb/part-024.txt","size":262144,"sha256":"443af28f215492e29d3ae07570c956bedf04fa8598ebb714f172a3e62047e6d3"},{"path":"assets/7b9297f84dadf5eb/part-025.txt","size":262144,"sha256":"50906b609c3bcc365f48d1fa0c2c1f5b5b08f25e188d2d974423b72152b51aec"},{"path":"assets/7b9297f84dadf5eb/part-026.txt","size":262144,"sha256":"995603bb9fe7beb5173d02bf6226bddf7d1f3912f7496379227132970ebef7b2"},{"path":"assets/7b9297f84dadf5eb/part-027.txt","size":262144,"sha256":"a4190bc8acdc4230aa2e040c10210242c04a8820d77bb0360a0597d119bb05c5"},{"path":"assets/7b9297f84dadf5eb/part-028.txt","size":262144,"sha256":"b38d297e13e3011c7bbfae68384f092783f99987dea0426e1a12511c29c4c21d"},{"path":"assets/7b9297f84dadf5eb/part-029.txt","size":262144,"sha256":"6d004a5956d8804cde1b734c5fa497f2787a7d4d4a3a5609ab1a8bffde4946fc"},{"path":"assets/7b9297f84dadf5eb/part-030.txt","size":262144,"sha256":"f58d3d96671f3d287c7d1b83584ce7f5aeab0a5a42af9dfe19e5702233013a9e"},{"path":"assets/7b9297f84dadf5eb/part-031.txt","size":262144,"sha256":"362c98e2c8aa886a65edc5f6a6339d67e29217612f883ea7ee1d8c8422db850c"},{"path":"assets/7b9297f84dadf5eb/part-032.txt","size":262144,"sha256":"3581b395dc86abffb8826ac700e9e66453f769d58e487d3d8948dfa687dd7712"},{"path":"assets/7b9297f84dadf5eb/part-033.txt","size":262144,"sha256":"e1b253212a69d9b915d6023a79e3a922d4d83a477f340e9ac00bbc918e06ed0f"},{"path":"assets/7b9297f84dadf5eb/part-034.txt","size":262144,"sha256":"8efcdd7e74a264b099b8dd7fe89d44da9fd7ef2c427e48816110a21377a03748"},{"path":"assets/7b9297f84dadf5eb/part-035.txt","size":262144,"sha256":"185fb8fb7c8d6fe79d7902aa438471466dea20b8fc4885fcb16fc815f407c987"},{"path":"assets/7b9297f84dadf5eb/part-036.txt","size":262144,"sha256":"e16c7218563859fbd20801720838887d41a9e7aa967698e5cec53f43eea854ad"},{"path":"assets/7b9297f84dadf5eb/part-037.txt","size":262144,"sha256":"9f7e055e50827225f8bb8d484f885e545194f61c30f0316fadac2887969b374c"},{"path":"assets/7b9297f84dadf5eb/part-038.txt","size":262144,"sha256":"eabfa1cf0953c20790bb6d64fd582cc76532fa683d2bf8b9077eb581c9ddb031"},{"path":"assets/7b9297f84dadf5eb/part-039.txt","size":262144,"sha256":"528a3ad28d52df2da9407ef11dd86432edb0885942e3382fe8bfd3b4f529639f"},{"path":"assets/7b9297f84dadf5eb/part-040.txt","size":262144,"sha256":"f391503131ca5ee02966835b04de83918acbcf56b7b9c4c99ea6d72d2f169f7f"},{"path":"assets/7b9297f84dadf5eb/part-041.txt","size":262144,"sha256":"b79b747bd0657fde96f390e897d369ce44572243b1e58f20af944ff52ce62a8f"},{"path":"assets/7b9297f84dadf5eb/part-042.txt","size":262144,"sha256":"25db33a28402c1afb10060c4b1b7db05c6dc67637d53bbdcf967b3c9030bef8b"},{"path":"assets/7b9297f84dadf5eb/part-043.txt","size":262144,"sha256":"c6175b812e4e987c92dd5fb849df2fda7e00b1f7bf9291173c12ef7bca735ffb"},{"path":"assets/7b9297f84dadf5eb/part-044.txt","size":262144,"sha256":"6a44404c3e98c871afd9e5c22ad83980ee45ab110299b0f532e2ca9c07005fdf"},{"path":"assets/7b9297f84dadf5eb/part-045.txt","size":262144,"sha256":"2cfe48ce1d67091f8914d08b3058e185970ab76eeeaaf4932ab6d472391602cb"},{"path":"assets/7b9297f84dadf5eb/part-046.txt","size":262144,"sha256":"0859292f56a117ab8f46638501b7c09b69e121ed30f3827ad2099f487a2cbb7d"},{"path":"assets/7b9297f84dadf5eb/part-047.txt","size":262144,"sha256":"e85f5d2219cfe433a27c4f60076ca6a3eb78e6fcc77b43650dd3394bd10c8db6"},{"path":"assets/7b9297f84dadf5eb/part-048.txt","size":262144,"sha256":"5fcd1012e5f508e39264d46c7acef74b5dfbf28a02520076f69d92bc2f981c8e"},{"path":"assets/7b9297f84dadf5eb/part-049.txt","size":262144,"sha256":"639a421427f54a01a2e2ca24618360471e04ee8ba998eb8801ce0a3482734d4b"},{"path":"assets/7b9297f84dadf5eb/part-050.txt","size":262144,"sha256":"b781019f3ace96b762966bcee63a9d7671c6a4a27bb25e7d02fd22c40ba8734e"},{"path":"assets/7b9297f84dadf5eb/part-051.txt","size":262144,"sha256":"b3552bb6d3809407f1fc7dd6fa7f3dd48a5423a573e2bd8e4d423f3edbfcf9a7"},{"path":"assets/7b9297f84dadf5eb/part-052.txt","size":262144,"sha256":"09d0a5359a20f7e5e891d87af2e3662b60a1d97bec20bcd6eccb1c261bbd4aaf"},{"path":"assets/7b9297f84dadf5eb/part-053.txt","size":262144,"sha256":"5408c784e4f734739b863fd0e97fa898c7c514ef3fd8892ed5571568f6d72904"},{"path":"assets/7b9297f84dadf5eb/part-054.txt","size":262144,"sha256":"70342cabf57a40351d03b3b3e691569512a0278572ef72095ed029abd7341881"},{"path":"assets/7b9297f84dadf5eb/part-055.txt","size":262144,"sha256":"647c2ff51fd18b1b791a90aff327a322979e0fb927de28a58cf59fd63fc8f506"},{"path":"assets/7b9297f84dadf5eb/part-056.txt","size":262144,"sha256":"10d8af74dcb41d008ac86a97e4fc70a01fd0a0bc71dc7f15f7e5713dd4e6c39d"},{"path":"assets/7b9297f84dadf5eb/part-057.txt","size":262144,"sha256":"c4420bff8e643b43d236fb1d3f5753a82e177b7fe141fce83fb3338d24113b26"},{"path":"assets/7b9297f84dadf5eb/part-058.txt","size":104320,"sha256":"b3bf858d04c473042c54103ddd23d443a40be9eacb79e0bb4858ee79cc4da905"}]}</script>
+<script id="encrypted-project" type="application/json">{"version":2,"kdf":"PBKDF2-SHA256","iterations":600000,"cipher":"AES-256-GCM","salt":"fEqXj4XInGUuYgQS+/8fTg==","catalog":{"iv":"X3UVcabMH+HDoe8C","aad":"catalog","size":25945,"sha256":"ae7a12e6144914ae60c1668248c20eeebda9c8edaae903e18fb15e7655672963","parts":[{"path":"vault/v2/ae7a12e6144914ae60c1668248c20eeebda9c8edaae903e18fb15e7655672963.bin","size":25945,"sha256":"ae7a12e6144914ae60c1668248c20eeebda9c8edaae903e18fb15e7655672963"}]}}</script>
 <script>(() => {
   'use strict';
-  const status = document.getElementById('status');
-  const progress = document.getElementById('progress');
-  const retry = document.getElementById('retry');
-  const manifest = JSON.parse(document.getElementById('encrypted-parts').textContent);
-  const hex = bytes => Array.from(new Uint8Array(bytes), b => b.toString(16).padStart(2, '0')).join('');
-  const digest = async bytes => hex(await crypto.subtle.digest('SHA-256', bytes));
-  let busy = false;
-  async function load() {
-    if (busy) return;
-    busy = true;
-    retry.hidden = true;
-    progress.hidden = false;
-    progress.value = 0;
-    status.textContent = 'Caricamento…';
-    const controller = new AbortController();
-    try {
-      if (!crypto.subtle) throw new Error('HTTPS required');
-      const parts = new Array(manifest.parts.length);
-      let next = 0;
-      let completed = 0;
-      async function worker() {
-        while (next < manifest.parts.length) {
-          if (controller.signal.aborted) throw new Error('Download cancelled');
-          const index = next++;
-          const part = manifest.parts[index];
-          if (!/^assets\/[a-f0-9]{16}\/part-\d{3}\.txt$/.test(part.path)) throw new Error('Invalid path');
-          const timeout = setTimeout(() => controller.abort(), 30000);
-          try {
-            const response = await fetch(new URL(part.path, location.href), {credentials:'omit', redirect:'error', signal:controller.signal});
-            if (!response.ok) throw new Error('Download failed');
-            const bytes = new Uint8Array(await response.arrayBuffer());
-            if (bytes.length !== part.size || await digest(bytes) !== part.sha256) throw new Error('Incomplete download');
-            if (controller.signal.aborted) throw new Error('Download cancelled');
-            parts[index] = bytes;
-            completed += bytes.length;
-            progress.value = Math.round(completed / manifest.size * 100);
-            status.textContent = `Caricamento… ${progress.value}%`;
-          } finally {
-            clearTimeout(timeout);
-          }
+  const form=document.getElementById('login-form');
+  const input=document.getElementById('password');
+  const button=document.getElementById('enter');
+  const message=document.getElementById('login-message');
+  const configNode=document.getElementById('encrypted-project');
+  const config=JSON.parse(configNode.textContent);
+  const configMarkup=configNode.outerHTML;
+  const protectedSource='<!doctype html>\n'+document.documentElement.outerHTML;
+  const PREFIX='CasaMarco:2:PBKDF2-SHA256:600000:AES-256-GCM:';
+  const decode=value=>Uint8Array.from(atob(value),c=>c.charCodeAt(0));
+  const encode=bytes=>{let value='';for(let i=0;i<bytes.length;i+=32768)value+=String.fromCharCode(...bytes.subarray(i,i+32768));return btoa(value);};
+  const hex=bytes=>Array.from(new Uint8Array(bytes),b=>b.toString(16).padStart(2,'0')).join('');
+  const digest=async bytes=>hex(await crypto.subtle.digest('SHA-256',bytes));
+  const cache=new Map();
+  let busy=false;
+  const problem=()=>Object.assign(new Error('Download failed'),{downloadFailure:true});
+  async function fetchPart(part,controller) {
+    if(!/^vault\/v2\/[a-f0-9]{64}\.bin$/.test(part.path)||!Number.isInteger(part.size)||part.size<1||part.size>262144)throw problem();
+    if(cache.has(part.path))return cache.get(part.path);
+    let bytes;
+    if(config.embedded){
+      if(!Object.hasOwn(config.embedded,part.path))throw problem();
+      bytes=decode(config.embedded[part.path]);
+    }else{
+      const timer=setTimeout(()=>controller.abort(),30000);
+      try{
+        const response=await fetch(new URL(part.path,location.href),{credentials:'omit',redirect:'error',signal:controller.signal});
+        if(!response.ok)throw problem();
+        bytes=new Uint8Array(await response.arrayBuffer());
+      }catch{throw problem();}finally{clearTimeout(timer);}
+    }
+    if(controller.signal.aborted||bytes.length!==part.size||await digest(bytes)!==part.sha256)throw problem();
+    cache.set(part.path,bytes);return bytes;
+  }
+  async function openArtifact(descriptor,key,controller,expectedAAD) {
+    if(descriptor.aad!==expectedAAD||!Array.isArray(descriptor.parts)||!descriptor.parts.length||descriptor.parts.length>256||!Number.isInteger(descriptor.size)||descriptor.size>64*1024*1024)throw problem();
+    const bytes=new Uint8Array(descriptor.size);let offset=0;
+    for(const part of descriptor.parts){const block=await fetchPart(part,controller);bytes.set(block,offset);offset+=block.length;}
+    if(offset!==bytes.length||await digest(bytes)!==descriptor.sha256)throw problem();
+    return new Uint8Array(await crypto.subtle.decrypt({name:'AES-GCM',iv:decode(descriptor.iv),additionalData:new TextEncoder().encode(PREFIX+expectedAAD),tagLength:128},key,bytes));
+  }
+  form.addEventListener('submit',async event=>{
+    event.preventDefault();if(busy)return;
+    if(!window.crypto?.subtle){message.textContent='Apri il collegamento HTTPS in Safari o in un browser aggiornato.';return;}
+    if(!input.value){message.textContent='Inserisci la password.';return;}
+    busy=true;button.disabled=true;button.textContent='Apertura…';message.textContent='';input.removeAttribute('aria-invalid');
+    const controller=new AbortController();let passwordBytes;let stage='password';
+    try{
+      if(config.version!==2||config.kdf!=='PBKDF2-SHA256'||config.iterations!==600000||config.cipher!=='AES-256-GCM'||decode(config.salt).length!==16)throw problem();
+      passwordBytes=new TextEncoder().encode(input.value);input.value='';input.removeAttribute('value');
+      const base=await crypto.subtle.importKey('raw',passwordBytes,'PBKDF2',false,['deriveKey']);passwordBytes.fill(0);
+      const key=await crypto.subtle.deriveKey({name:'PBKDF2',salt:decode(config.salt),iterations:600000,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);
+      const catalogBytes=await openArtifact(config.catalog,key,controller,'catalog');
+      const catalog=JSON.parse(new TextDecoder('utf-8',{fatal:true}).decode(catalogBytes));catalogBytes.fill(0);stage='assets';
+      if(catalog.version!==2||!catalog.project?.images)throw problem();
+      const appBytes=await openArtifact(catalog.presentation,key,controller,'presentation');
+      const template=new TextDecoder('utf-8',{fatal:true}).decode(appBytes);appBytes.fill(0);
+      if(!template.startsWith('<!doctype html>')||template.split('__CASA_PROJECT_JSON__').length!==2)throw problem();
+      const ids=Object.keys(catalog.project.images);let next=0,completed=0;
+      async function worker(){
+        while(next<ids.length){
+          if(controller.signal.aborted)throw problem();
+          const id=ids[next++],image=catalog.project.images[id];
+          if(!['image/jpeg','image/png'].includes(image.mime))throw problem();
+          const bytes=await openArtifact(image.asset,key,controller,'render:'+id);
+          const src=`data:${image.mime};base64,${encode(bytes)}`;bytes.fill(0);
+          if(controller.signal.aborted)throw problem();
+          catalog.project.images[id]={src,width:image.width,height:image.height};
+          completed++;button.textContent=`Apertura… ${Math.round(completed/ids.length*100)}%`;
         }
       }
-      await Promise.all(Array.from({length:Math.min(4, parts.length)}, () => worker()));
-      const bytes = new Uint8Array(manifest.size);
-      let offset = 0;
-      for (const part of parts) { bytes.set(part, offset); offset += part.length; }
-      if (offset !== manifest.size || await digest(bytes) !== manifest.sha256) throw new Error('Invalid package');
-      const html = new TextDecoder('utf-8', {fatal:true}).decode(bytes);
-      if (!html.startsWith('<!doctype html>') || !html.includes('id="encrypted-project"')) throw new Error('Invalid encrypted page');
-      document.open();
-      document.write(html);
-      document.close();
-    } catch {
-      controller.abort();
-      status.textContent = 'Caricamento non riuscito. Controlla la connessione e riprova.';
-      progress.hidden = true;
-      retry.hidden = false;
-    } finally {
-      busy = false;
-    }
-  }
-  retry.addEventListener('click', load);
-  load();
+      await Promise.all(Array.from({length:Math.min(4,ids.length)},()=>worker()));
+      let offlineSource=protectedSource;
+      if(!config.embedded){
+        const embedded=Object.fromEntries([...cache].map(([path,bytes])=>[path,encode(bytes)]));
+        const inlineJSON=JSON.stringify({...config,embedded});
+        const inlineMarkup=configMarkup.replace(configNode.textContent,()=>inlineJSON);
+        offlineSource=protectedSource.replace(configMarkup,()=>inlineMarkup);
+      }
+      window.__CASA_ENCRYPTED_SOURCE__=offlineSource;
+      const projectJSON=JSON.stringify(catalog.project).replace(/</g,'\\u003c');
+      let html=template.replace('__CASA_PROJECT_JSON__',()=>projectJSON);
+      html=html.replace('<head>','<head><meta http-equiv="Content-Security-Policy" content="connect-src \'none\'; form-action \'none\'">');
+      document.open();document.write(html);document.close();
+    }catch(error){
+      controller.abort();input.value='';
+      if(stage==='password'&&!error.downloadFailure){input.setAttribute('aria-invalid','true');message.textContent='password errata';}
+      else message.textContent='Caricamento non riuscito. Controlla la connessione e riprova.';
+      input.focus();
+    }finally{passwordBytes?.fill(0);busy=false;button.disabled=false;button.textContent='Entra';}
+  });
 })();
 </script>
 </body>
